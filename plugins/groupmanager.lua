@@ -3425,7 +3425,7 @@ end
 if (matches[1] == "help" and not Clang) and is_mod(msg) then
 if not lang then
 text = [[
-*Beyond Bot Commands:*
+*Bot Commands:*
 
 *!setowner* `[username|id|reply]` 
 _Set Group Owner(Multi Owner)_
@@ -3453,6 +3453,9 @@ _Silent User From Group_
 
 *!unsilent* `[username|id|reply]` 
 _Unsilent User From Group_
+
+*!rmsg* `[1-1000]`
+_Remove Group chats_
 
 *!kick* `[username|id|reply]` 
 _Kick User From Group_
@@ -3572,12 +3575,12 @@ _You Can Use_ *[!/#]* _To Run The Commands_
 _This Help List Only For_ *Moderators/Owners!*
 _Its Means, Only Group_ *Moderators/Owners* _Can Use It!_
 
-*Good luck ;)*]]
+*@RGspam Channel*]]
 
 elseif lang then
 
 text = [[
-_دستورات ربات بیوند:_
+_دستورات ربات :_
 
 *!setowner* `[username|id|reply]`
 _انتخاب مالک گروه(قابل انتخاب چند مالک)_
@@ -3605,6 +3608,9 @@ _بیصدا کردن کاربر در گروه_
 
 *!unsilent* `[username|id|reply]`
 _در آوردن کاربر از حالت بیصدا در گروه_
+
+*!rmsg* `[1-1000]`
+_پاک کردن پیام های گروه_
 
 *!kick* `[username|id|reply]`
 _حذف کاربر از گروه_
@@ -3729,7 +3735,7 @@ _این راهنما فقط برای مدیران/مالکان گروه میبا
 
 _این به این معناست که فقط مدیران/مالکان گروه میتوانند از دستورات بالا استفاده کنند!_
 
-_موفق باشید_ *;)*
+_@RGspam Channel_ *
 ]]
 end
 return text..msg_caption
@@ -3738,7 +3744,7 @@ end
 if (matches[1] == "راهنما" and Clang) and is_mod(msg) then
 if not lang then
 text = [[
-*Beyond Bot Commands:*
+*Bot Commands:*
 
 *مالک* `[username|id|reply]` 
 _Set Group Owner(Multi Owner)_
@@ -3766,6 +3772,9 @@ _Silent User From Group_
 
 *حذف سکوت* `[username|id|reply]` 
 _Unsilent User From Group_
+
+*پاکسازی* `[1-1000]`
+_Remove Group chats_
 
 *اخراج* `[username|id|reply]` 
 _Kick User From Group_
@@ -3887,12 +3896,12 @@ _Show Fun Help_
 _This Help List Only For_ *Moderators/Owners!*
 _Its Means, Only Group_ *Moderators/Owners* _Can Use It!_
 
-*Good luck ;)*]]
+*@RGspam Channel*]]
 
 elseif lang then
 
 text = [[
-*دستورات ربات بیوند:*
+*دستورات ربات :*
 
 *مالک* `[یوزرنیم|ایدی|ریپلی]` 
 _انتخاب مالک گروه(قابل انتخاب چند مالک)_
@@ -3920,6 +3929,9 @@ _بیصدا کردن کاربر در گروه_
 
 *حذف سکوت* `[یوزرنیم|ایدی|ریپلی]` 
 _در آوردن کاربر از حالت بیصدا در گروه_
+
+*پاکسازی* `[1-1000]`
+_پاک کردن پیام های گروه_
 
 *اخراج* `[یوزرنیم|ایدی|ریپلی]` 
 _حذف کاربر از گروه_
@@ -4046,7 +4058,7 @@ _نمایش راهنمای سرگرمی_
 
 _این راهنما فقط برای مدیران/مالکان گروه میباشد!
 این به این معناست که فقط مدیران/مالکان گروه میتوانند از دستورات بالا استفاده کنند!_
-*موفق باشید ;)*]]
+*@RGspam Channel*]]
 end
 return text..msg_caption
 end
@@ -4218,6 +4230,7 @@ patterns ={
 "^[!/#](mutelist)$",
 "^[!/#](mute) (.*)$",
 "^[!/#](unmute) (.*)$",
+"^[!/#](rmsg) (.*)$",
 "^[!/#](link)$",
 "^[!/#](linkpv)$",
 "^[!/#](setlink)$",
@@ -4272,6 +4285,7 @@ patterns ={
 '^(باز کردن) (.*)$',
 '^(بیصدا) (.*)$',
 '^(باصدا) (.*)$',
+'^(پاکسازی) (.*)$',
 '^(لینک جدید)$',
 '^(لینک جدید) (خصوصی)$',
 '^(اطلاعات گروه)$',

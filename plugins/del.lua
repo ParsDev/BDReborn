@@ -42,7 +42,7 @@ end
   tdcli_function ({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID,offset_ = 0,limit_ = 5000}, pro, nil)
 end
 ------------------------------------------
-    if ((matches[1]:lower() == "rmsg" and not Clang) or (matches[1] == "پاکسازی" and Clang)) and is_mod(msg) then
+    if (matches[1]:lower() == "rmsg" and not Clang) or (matches[1] == "پاکسازی" and Clang) and is_mod(msg) then
         if tostring(msg.to.id):match("^-100") then 
             if tonumber(matches[2]) > 1000 or tonumber(matches[2]) < 1 then
                 return  '🚫 *1000*> _تعداد پیام های قابل پاک سازی در هر دفعه_ >*1* 🚫'
